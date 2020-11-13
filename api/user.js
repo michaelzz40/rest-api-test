@@ -1,5 +1,4 @@
 const express = require("express");
-const passport = require("passport");
 const { facebookLogin, getUserInfo } = require("../controllers/userController");
 const { protect } = require("../middleware/authMiddleware");
 

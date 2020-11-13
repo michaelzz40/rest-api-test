@@ -96,23 +96,9 @@ const updateBook = async (req, res, next) => {
   }
 };
 
-const deleteBook = async (req, res, next) => {
-  try {
-    await Books.findByIdAndDelete(req.params.id, err => {
-      if (err && err.kind === "ObjectId") {
-        return res.status(400).json({ msg: "Object not found" });
-      }
-    });
-    res.status(200).json({ msg: "Deleted a book" });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-
 module.exports = {
   getAllBooks,
   getBookById,
   addBook,
-  updateBook,
-  deleteBook
+  updateBook
 };

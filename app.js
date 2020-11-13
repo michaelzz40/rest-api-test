@@ -4,6 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 5001;
 const bookRoute = require("./api/book");
 const userRoute = require("./api/user");
+const wishlistRoute = require("./api/wishlist");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -14,6 +15,7 @@ app.use(express.static(path.join(__dirname, "build")));
 
 app.use("/api/books", bookRoute);
 app.use("/api/auth", userRoute);
+app.use("/api/wishlist", wishlistRoute);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
